@@ -1,0 +1,5 @@
+/* configuracao do Java - repositorio dos artefatos gerados */
+target/
+
+/* configuracao do Java Generation - repositorio das classes geradas dinamicamente */
+src/main/java/com/servidor/generated

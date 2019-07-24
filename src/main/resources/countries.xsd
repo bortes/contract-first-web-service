@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:tns="http://servidor.com/generated"
+  targetNamespace="http://servidor.com/generated"
+  elementFormDefault="qualified"
+>
+
+  <!-- especifica os dados esperados na solicitacao para a consulta de um pais -->
+  <xs:element name="getCountryRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <!-- nome do pais procurado -->
+        <xs:element name="name" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- especifica os dados da resposta para a consulta de um pais -->
+  <xs:element name="getCountryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <!-- pais encontrado -->
+        <xs:element name="country" type="tns:country"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- especifica os dados de um pais -->
+  <xs:complexType name="country">
+    <xs:sequence>
+      <!-- nome do pais -->
+      <xs:element name="name" type="xs:string"/>
+      <!-- populacao do pais -->
+      <xs:element name="population" type="xs:int"/>
+      <!-- capital do pais -->
+      <xs:element name="capital" type="xs:string"/>
+      <!-- simbolo da moeda corrente do pais -->
+      <xs:element name="currency" type="tns:currency"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- especifica os simbolos das moedas corrente suportadas -->
+  <xs:simpleType name="currency">
+    <xs:restriction base="xs:string">
+      <!-- real -->
+      <xs:enumeration value="BRL"/>
+      <!-- peso colombiano -->
+      <xs:enumeration value="COP"/>
+      <!-- peso argentino -->
+      <xs:enumeration value="ARS"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
